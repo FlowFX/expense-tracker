@@ -67,4 +67,9 @@ RSpec.configure do |config|
 
   # Filter out framework code
   config.filter_gems_from_backtrace 'rack', 'rack-test', 'sequel', 'sinatra'
+
+  # Load db-related support code when needed
+  config.when_first_matching_example_defined(:db) do
+    require_relative 'support/db'
+  end
 end
